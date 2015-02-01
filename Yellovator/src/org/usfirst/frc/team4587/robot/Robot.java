@@ -1,8 +1,5 @@
 
 package org.usfirst.frc.team4587.robot;
-import org.usfirst.frc.team4587.robot.commands.SetElevator;
-import org.usfirst.frc.team4587.robot.commands.Shifter.ShiftGears;
-import org.usfirst.frc.team4587.robot.commands.TotesCollection.ToteIntake;
 import org.usfirst.frc.team4587.robot.subsystems.DriveBase;
 import org.usfirst.frc.team4587.robot.subsystems.ElevatorTote;
 import org.usfirst.frc.team4587.robot.subsystems.Intaketotes;
@@ -36,10 +33,6 @@ public class Robot extends IterativeRobot {
 	public static Shifter shiftspeed = new Shifter();
 	public static Intaketotes Collection = new Intaketotes();
 	public static ElevatorTote liftertotes = new ElevatorTote();
-	//public static ToteIntake toteIntake;
-	//public static ShiftGears shifter;
-	//public static SetElevator mainElevator;
-	//public static MoveFowardEncoders moveForwards;
     public void robotInit() {
     	oi = new OI();
     	//Drivetrain.resetEncoders();

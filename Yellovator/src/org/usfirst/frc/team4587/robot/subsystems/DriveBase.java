@@ -2,11 +2,7 @@ package org.usfirst.frc.team4587.robot.subsystems;
 
 
 import org.usfirst.frc.team4587.robot.RobotMap;
-import org.usfirst.frc.team4587.robot.Util.Math4587;
 import org.usfirst.frc.team4587.robot.commands.Driving.ArcadeDrive;
-
-import edu.wpi.first.wpilibj.AnalogPotentiometer;
-import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.SpeedController;
 import edu.wpi.first.wpilibj.Talon;
