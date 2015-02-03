@@ -23,8 +23,8 @@ public class ArcadeDrive extends Command {
     protected void execute() {
     	//double triggers = OI.driveStick.getOldTriggers();
     	double move = OI.driveStick.getLeftJoystickY();
-    	double rotate = OI.driveStick.getRightJoystickX();
-    	double translation = OI.driveStick.getLeftJoystickX();
+    	double rotate = OI.driveStick.getLeftJoystickX();
+    	double translation = OI.driveStick.getRightJoystickX();
     	Robot.Drivetrain.holoDrive(move,rotate,translation);
     	}
 
