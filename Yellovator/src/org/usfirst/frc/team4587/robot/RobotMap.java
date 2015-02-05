@@ -43,8 +43,8 @@ public class RobotMap {
 			/*
 			 * Collector Pneumatics for totes
 			 */
-			public static final int TOTE_ELEVATOR_BRAKE = 1;
-			public static final int CAN_ELEVATOR_BRAKE = 2;
+			public static final int INTAKE_SOLENOID_L1 = 1;
+			public static final int INTAKE_SOLENOID_R2 = 2;
 			/*
 			 * Pneumatic Shifter for Drivetrain
 			 */
@@ -87,7 +87,6 @@ public class RobotMap {
 			 * Pot... so we can measure how high we are.... hehe
 			 */
 			public static final int POT_SENSOR_LIFT = 1;
-			public static final int GYRO_SENSOR = 2;
 			// //////////////////////////////////--Controls // --/////////////////////////////////////////
 			/**
 			 * The port the right joystick is plugged into.

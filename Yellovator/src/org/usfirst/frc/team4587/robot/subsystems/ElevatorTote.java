@@ -17,21 +17,21 @@ Potentiometer pot;
 SpeedController motorLift1, motorLift2;
 private boolean brake;
 private double last_output = 0;
-   private static final int Kp = 5;
-   private static final int Ki = 5;
-   private static final int Kd = 5;
+   // Initialize your subsystem here
     public ElevatorTote() {
         // Use these to get going:
         // setSetpoint() -  Sets where the PID controller should move the system
         //                  to
         // enable() - Enables the PID controller.
-		super("Elevator", Kp , Ki , Kd);
+		super("Elevator", 5 , 0 , 0);
     	this.setAbsoluteTolerance(.02);
     	this.getPIDController().setContinuous(false);
     	pot = new AnalogPotentiometer(RobotMap.POT_SENSOR_LIFT, 1,0);
     	motorLift1 = new Talon(RobotMap.MOTOR_INTAKE_L1);
     	motorLift2 = new Talon(RobotMap.MOTOR_INTAKE_R1);
-    	this.setSetpoint(pot.get());
+    this.setSetpoint(pot.get());
+    	brakeSet();
+    	enable();
     }
     
     public void initDefaultCommand() {
@@ -52,10 +52,22 @@ private double last_output = 0;
         // Use output to drive your system, like a motor
         // e.g. yourMotor.set(output);
     	last_output = output;
-    	
+    	if(this.onTarget() == true)
+    	{
+    		motorLift1.pidWrite(0);
+    		motorLift2.pidWrite(0);
+    		brakeSet();
+    	}
+    	else if(brake == true)
+    	{
+    		brakeRelease();
+    		//Place to extend time of loop
+    	}
+    	else
+    	{
     		motorLift1.pidWrite(output);
     		motorLift2.pidWrite(output);
-    	
+    	}
     	
     }
     public void display()

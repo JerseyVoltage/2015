@@ -5,7 +5,7 @@ import org.usfirst.frc.team4587.robot.Util.F310GamePad;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
-import org.usfirst.frc.team4587.robot.commands.ElevatorTotes.SetElevator;
+import org.usfirst.frc.team4587.robot.commands.SetElevator;
 import org.usfirst.frc.team4587.robot.commands.Shifter.*;
 import org.usfirst.frc.team4587.robot.commands.TotesCollection.ToteIntake;
 import org.usfirst.frc.team4587.robot.commands.TotesCollection.ToteOutake;
