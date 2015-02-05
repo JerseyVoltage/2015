@@ -36,7 +36,6 @@ private double position;
     // Called once after isFinished returns true
     protected void end() {
     	Robot.liftertotes.brakeSet();
-    	Robot.liftertotes.disable();
     }
 
     // Called when another command which requires one or more of the same

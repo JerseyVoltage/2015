@@ -84,6 +84,7 @@ public class Robot extends IterativeRobot {
         Scheduler.getInstance().run();
         liftertotes.display();
         Drivetrain.displayDrive();
+        
     }
     
     /**
