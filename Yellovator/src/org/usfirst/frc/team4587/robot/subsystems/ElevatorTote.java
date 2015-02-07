@@ -3,6 +3,7 @@ package org.usfirst.frc.team4587.robot.subsystems;
 import org.usfirst.frc.team4587.robot.RobotMap;
 
 import edu.wpi.first.wpilibj.AnalogPotentiometer;
+import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.SpeedController;
 import edu.wpi.first.wpilibj.Talon;
 import edu.wpi.first.wpilibj.command.PIDSubsystem;
@@ -15,23 +16,28 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 public class ElevatorTote extends PIDSubsystem {
 Potentiometer pot;
 SpeedController motorLift1, motorLift2;
+Solenoid pistonBrake;
 private boolean brake;
 private double last_output = 0;
    // Initialize your subsystem here
+private static final double Kp = 5;
+private static final double Ki = 0;
+private static final double Kd = 0 ;
     public ElevatorTote() {
         // Use these to get going:
         // setSetpoint() -  Sets where the PID controller should move the system
         //                  to
         // enable() - Enables the PID controller.
-		super("Elevator", 5 , 0 , 0);
+		super("Elevator", Kp , Ki , Kd);
     	this.setAbsoluteTolerance(.02);
     	this.getPIDController().setContinuous(false);
     	pot = new AnalogPotentiometer(RobotMap.POT_SENSOR_LIFT, 1,0);
     	motorLift1 = new Talon(RobotMap.MOTOR_INTAKE_L1);
     	motorLift2 = new Talon(RobotMap.MOTOR_INTAKE_R1);
+    	pistonBrake = new Solenoid(RobotMap.INTAKE_SOLENOID_L1);
     this.setSetpoint(pot.get());
     	brakeSet();
-    	enable();
+    	
     }
     
     public void initDefaultCommand() {
@@ -56,11 +62,11 @@ private double last_output = 0;
     	{
     		motorLift1.pidWrite(0);
     		motorLift2.pidWrite(0);
-    		brakeSet();
+    		//brakeSet();
     	}
     	else if(brake == true)
     	{
-    		brakeRelease();
+    	//	brakeRelease();
     		//Place to extend time of loop
     	}
     	else

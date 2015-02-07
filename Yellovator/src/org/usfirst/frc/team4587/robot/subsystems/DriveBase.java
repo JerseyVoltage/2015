@@ -20,7 +20,7 @@ public class DriveBase extends Subsystem {
     // here. Call these from Commands.
 SpeedController left1,left2,right1,right2 , H_wheel;
 Potentiometer pot;
-
+private static final double deadBand = .2;
 private final RobotDrive mDrive;
 
     public void initDefaultCommand() {
@@ -43,8 +43,10 @@ private final RobotDrive mDrive;
 	 */
 	public void holoDrive(double move, double rotate, double strafe)
 	{
-		mDrive.arcadeDrive(move, rotate);
+		
+		mDrive.arcadeDrive(move, rotate, true);
 		H_wheel.set(strafe);
+	
 		
 	}
 	
@@ -64,6 +66,7 @@ private final RobotDrive mDrive;
 		SmartDashboard.putNumber("H Motor value" , H_wheel.get());
 
 	}
+	
 
 }
 

@@ -2,13 +2,15 @@ package org.usfirst.frc.team4587.robot.commands.Driving;
 
 import org.usfirst.frc.team4587.robot.OI;
 import org.usfirst.frc.team4587.robot.Robot;
+
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  *
  */
 public class ArcadeDrive extends Command {
-
+private static final double deadBand = 1;
     public ArcadeDrive() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
@@ -26,6 +28,11 @@ public class ArcadeDrive extends Command {
     	double rotate = OI.driveStick.getRightJoystickX();
     	double translation = OI.driveStick.getLeftJoystickX();
     	Robot.Drivetrain.holoDrive(move,rotate,translation);
+    	
+    	SmartDashboard.putNumber("H Motor value" , translation);
+    	SmartDashboard.putNumber("Move" , move);
+    	SmartDashboard.putNumber("Rotate" , rotate);
+    	
     	}
 
     // Make this return true when this Command no longer needs to run execute()
