@@ -3,6 +3,8 @@ package org.usfirst.frc.team4587.robot.subsystems;
 
 import org.usfirst.frc.team4587.robot.RobotMap;
 import org.usfirst.frc.team4587.robot.commands.Driving.ArcadeDrive;
+
+import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.SpeedController;
 import edu.wpi.first.wpilibj.Talon;
@@ -19,8 +21,8 @@ public class DriveBase extends Subsystem {
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
 SpeedController left1,left2,right1,right2 , H_wheel;
-Potentiometer pot;
-private static final double deadBand = .2;
+Encoder rightEncoder, leftEncoder;
+
 private final RobotDrive mDrive;
 
     public void initDefaultCommand() {
@@ -32,7 +34,8 @@ private final RobotDrive mDrive;
  */
     public DriveBase() 
     {
-    	
+    rightEncoder = new Encoder(RobotMap.ENCODER_SENSOR_R_A, RobotMap.ENCODER_SENSOR_R_B);
+    leftEncoder = new Encoder(RobotMap.ENCODER_SENSOR_L_A, RobotMap.ENCODER_SENSOR_L_B);
 	mDrive = new RobotDrive(RobotMap.MOTOR_DRIVE_L1,RobotMap.MOTOR_DRIVE_L2,RobotMap.MOTOR_DRIVE_R1,RobotMap.MOTOR_DRIVE_R2);
 	H_wheel = new Talon(RobotMap.MOTOR_DRIVE_H);
 	}
@@ -49,8 +52,6 @@ private final RobotDrive mDrive;
 	
 		
 	}
-	
-
 	public void setMotors(double power)
 	{
 		left1.set(power);
@@ -58,15 +59,32 @@ private final RobotDrive mDrive;
 		right1.set(power);
 		right2.set(power);
 	}
-	
 	public void setHMotor(double power)
 	
 	{
 		this.H_wheel.set(power);
 		SmartDashboard.putNumber("H Motor value" , H_wheel.get());
-
+	}
+	public int getRightEncoder()
+	{
+		return rightEncoder.get();
+	}
+	public int getLeftEncoder()
+	{
+		return leftEncoder.get();
+	}
+	public double getAverageEncoders()
+	{
+		return Math.abs(getLeftEncoder() + getRightEncoder()/2);
 	}
 	
+
+	public void displayDrive()
+	{
+		SmartDashboard.putNumber("Encoder Left", getLeftEncoder());
+		SmartDashboard.putNumber("Encoder Right", getRightEncoder());
+		SmartDashboard.putNumber("Average Ticks", getAverageEncoders());
+	}
 
 }
 

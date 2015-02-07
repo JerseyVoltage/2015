@@ -18,8 +18,8 @@ private final SpeedController intakeMotor1, intakeMotor2;
 private final DigitalInput limitSwitch;
 public Intaketotes(){
 	limitSwitch = new DigitalInput(RobotMap.TOUCH_SENSOR_L1);
-	intakeMotor1 = new Talon(RobotMap.MOTOR_LIFT_TR1);
-	intakeMotor2 = new Talon(RobotMap.MOTOR_LIFT_TL1);
+	intakeMotor1 = new Talon(RobotMap.MOTOR_INTAKE_L1);
+	intakeMotor2 = new Talon(RobotMap.MOTOR_INTAKE_R1);
 }
 public void setIntake(double speed)
 {

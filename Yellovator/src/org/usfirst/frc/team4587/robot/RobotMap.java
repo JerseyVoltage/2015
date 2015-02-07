@@ -12,39 +12,38 @@ public class RobotMap {
 			 */
 			public static final int MOTOR_DRIVE_L1 = 0;
 			public static final int MOTOR_DRIVE_L2 = 1;
-			public static final int MOTOR_DRIVE_L3 = 2;
 			/*
 			 * Motors Right Side
 			 */
-			public static final int MOTOR_DRIVE_R1 = 3;
-			public static final int MOTOR_DRIVE_R2 = 4;
-			public static final int MOTOR_DRIVE_R3 = 5;
+			public static final int MOTOR_DRIVE_R1 = 2;
+			public static final int MOTOR_DRIVE_R2 = 3;
+			
 			/*
 			 * H drive motors
 			 */
-			public static final int MOTOR_DRIVE_H = 6;
+			public static final int MOTOR_DRIVE_H = 4;
 			/*
 			 * Intake Motors
 			 */
-			public static final int MOTOR_INTAKE_L1 = 7;
-			public static final int MOTOR_INTAKE_R1 = 8;
+			public static final int MOTOR_INTAKE_L1 = 5;
+			public static final int MOTOR_INTAKE_R1 = 6;
 			/*
 			 * Elevator Motors for totes
 			 */
-			public static final int MOTOR_LIFT_TL1 = 9;
-			public static final int MOTOR_LIFT_TR1 = 10;
+			public static final int MOTOR_LIFT_TL1 = 7;
+			public static final int MOTOR_LIFT_TR1 = 8;
 			/*
 			 * Elevator Motors for Can
 			 */
-			public static final int MOTOR_LIFT_C1 = 11;
+			public static final int MOTOR_LIFT_C1 = 9;
 
 			// //////////////////////////////////Solenoids/////////////////////////////////////////
 
 			/*
 			 * Collector Pneumatics for totes
 			 */
-			public static final int INTAKE_SOLENOID_L1 = 1;
-			public static final int INTAKE_SOLENOID_R2 = 2;
+			public static final int BRAKE_TOTE_ELEVATOR = 1;
+			public static final int BRAKE_CAN_ELEVATOR = 2;
 			/*
 			 * Pneumatic Shifter for Drivetrain
 			 */

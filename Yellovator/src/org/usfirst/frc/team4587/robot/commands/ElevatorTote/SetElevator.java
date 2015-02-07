@@ -1,24 +1,23 @@
 package org.usfirst.frc.team4587.robot.commands.ElevatorTote;
 
 import org.usfirst.frc.team4587.robot.Robot;
-
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
  *
  */
 public class SetElevator extends Command {
-private double position;
+private double TotePosition;
     public SetElevator(double position) {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     	requires(Robot.liftertotes);
-    	this.position = position;
+    	this.TotePosition = position;
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	Robot.liftertotes.setSetpoint(position);
+    	Robot.liftertotes.setSetpoint(TotePosition);
     	Robot.liftertotes.enable();
     	Robot.liftertotes.brakeRelease();
     }

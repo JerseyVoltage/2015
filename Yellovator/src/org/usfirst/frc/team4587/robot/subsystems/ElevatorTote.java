@@ -32,11 +32,12 @@ private static final double Kd = 0 ;
     	this.setAbsoluteTolerance(.02);
     	this.getPIDController().setContinuous(false);
     	pot = new AnalogPotentiometer(RobotMap.POT_SENSOR_LIFT, 1,0);
-    	motorLift1 = new Talon(RobotMap.MOTOR_INTAKE_L1);
-    	motorLift2 = new Talon(RobotMap.MOTOR_INTAKE_R1);
-    	pistonBrake = new Solenoid(RobotMap.INTAKE_SOLENOID_L1);
-    this.setSetpoint(pot.get());
-    	brakeSet();
+    	motorLift1 = new Talon(RobotMap.MOTOR_LIFT_TL1);
+    	motorLift2 = new Talon(RobotMap.MOTOR_LIFT_TR1);
+    	pistonBrake = new Solenoid(RobotMap.BRAKE_TOTE_ELEVATOR);
+    	this.setSetpoint(pot.get());
+    	pistonBrake.set(brake);
+    	//brakeSet();
     	
     }
     
@@ -86,8 +87,10 @@ private static final double Kd = 0 ;
     }
     public void brakeRelease() {
     	brake = false;
+    	this.pistonBrake.set(brake);
     }
     public void brakeSet() {
     	brake = true;
+    	this.pistonBrake.set(brake);
     }
 }
