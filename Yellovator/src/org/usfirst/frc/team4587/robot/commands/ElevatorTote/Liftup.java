@@ -1,5 +1,4 @@
 package org.usfirst.frc.team4587.robot.commands.ElevatorTote;
-
 import org.usfirst.frc.team4587.robot.Robot;
 
 import edu.wpi.first.wpilibj.command.Command;
@@ -13,24 +12,17 @@ public class Liftup extends Command {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     	requires(Robot.liftertotes);
-    	
+    		
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	SetElevator.autoLift = false;
     	Robot.liftertotes.brakeRelease();
-    	Robot.liftertotes.disable();
     	Robot.liftertotes.moveElevator(.8);
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	if(SetElevator.autoLift == false)
-    	{
-    		Robot.liftertotes.moveElevator(.8);
-    	}
-    	else{}
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -47,6 +39,6 @@ public class Liftup extends Command {
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
-    	end();
+    	if(isFinished()) end();//make sure that the lift is interrupted.
     }
 }

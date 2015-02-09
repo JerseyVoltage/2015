@@ -20,7 +20,7 @@ public class DriveBase extends Subsystem {
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
 SpeedController left1,left2,right1,right2 , H_wheel;
-Encoder rightEncoder, leftEncoder;
+Encoder rightEncoder, leftEncoder;	
 
 private final RobotDrive mDrive;
 
@@ -62,7 +62,6 @@ private final RobotDrive mDrive;
 	
 	{
 		this.H_wheel.set(power);
-		SmartDashboard.putNumber("H Motor value" , H_wheel.get());
 	}
 	public int getRightEncoder()
 	{

@@ -77,7 +77,7 @@ private static final double Kd = 0 ;
     	}
     	
     }
-    public void display()
+    public void display_Tote_Elevator()
     {
     	SmartDashboard.putNumber("Pot Value", pot.get());
     	SmartDashboard.putNumber("Set Point", this.getSetpoint());

@@ -82,11 +82,11 @@ public class Robot extends IterativeRobot {
      */
     public void teleopPeriodic() {
         Scheduler.getInstance().run();
-        liftertotes.display();
+        liftertotes.display_Tote_Elevator();
         Drivetrain.displayDrive();
     }
     
-    /**
+    /**s
      * This function is called periodically during test mode
      */
     public void testPeriodic() {

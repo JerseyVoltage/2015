@@ -22,6 +22,7 @@ public class OI {
 	public static final Button ShiftGears = new JoystickButton(driveStick,F310GamePad.button_Y);
 	public static final Button Outake = new JoystickButton(driveStick,F310GamePad.button_L_Shoulder);
 	public static final Button Intake = new JoystickButton(driveStick, F310GamePad.button_R_Shoulder);
+	// operators controls
 	public static final Button Position0 = new JoystickButton(operatorStick, F310GamePad.button_Start);
 	public static final Button Position1 = new JoystickButton(operatorStick,F310GamePad.button_A);
 	public static final Button Position2 = new JoystickButton(operatorStick, F310GamePad.button_B);
@@ -40,8 +41,8 @@ public class OI {
 		Position2.whenPressed(new SetElevator(Constants.TWO_TOTE));
 		Position3.whenPressed(new SetElevator(Constants.THREE_TOTE));
 		Position4.whenPressed(new SetElevator(Constants.FOUR_TOTE));
-		liftTote.whenPressed(new Liftdown());
-		lowerTote.whenPressed(new Liftdown());
+		lowerTote.whileHeld(new Liftdown());
+		liftTote.whileHeld(new Liftdown());
 		
 		
 		}

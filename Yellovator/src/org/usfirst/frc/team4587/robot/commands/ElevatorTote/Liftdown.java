@@ -17,18 +17,12 @@ public class Liftdown extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	SetElevator.autoLift = false;
     	Robot.liftertotes.brakeRelease();
-    	Robot.liftertotes.disable();
+    	Robot.liftertotes.moveElevator(-.8);
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	if(SetElevator.autoLift == false)
-    	{
-    		Robot.liftertotes.moveElevator(-.8);//move elevator down.
-    	}
-    	else{}
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -39,12 +33,12 @@ public class Liftdown extends Command {
     // Called once after isFinished returns true
     protected void end() {
     	Robot.liftertotes.brakeSet();
-    	Robot.liftertotes.moveElevator(0);
+    	Robot.liftertotes.moveElevator(0);//turn off motor
     }
 
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
-    	end();
+    	if(isFinished()) end();//make sure that the lift is interrupted.
     }
 }
