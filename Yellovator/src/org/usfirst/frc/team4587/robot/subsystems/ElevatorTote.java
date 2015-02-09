@@ -83,8 +83,11 @@ private static final double Kd = 0 ;
     	SmartDashboard.putNumber("Set Point", this.getSetpoint());
     	SmartDashboard.putBoolean("Brake", brake);
     	SmartDashboard.putBoolean("On Target", this.onTarget());
-    	SmartDashboard.putNumber("Last Output", last_output);
+    	SmartDashboard.putNumber("Lift Motors PID", last_output);
     }
+    /**
+     * Tote Elevator brake set engage
+     */
     public void brakeRelease() {
     	brake = false;
     	this.pistonBrake.set(brake);
@@ -93,4 +96,14 @@ private static final double Kd = 0 ;
     	brake = true;
     	this.pistonBrake.set(brake);
     }
+    /**
+     * Raise lift
+     * @param power
+     */
+    public void moveElevator(double power)
+    {
+    	motorLift1.set(power);
+    	motorLift2.set(power);
+    }
+    
 }
