@@ -35,18 +35,14 @@ public class OI {
 		ShiftGears.toggleWhenPressed(new ShiftGears());
 		Outake.whileHeld(new ToteOutake());
 		Intake.whileHeld(new ToteIntake());
-		if(SetElevator.autoLift == true)
-		{
 		Position0.whenPressed(new SetElevator(Constants.FLOOR));
 		Position1.whenPressed(new SetElevator(Constants.ONE_TOTE));
 		Position2.whenPressed(new SetElevator(Constants.TWO_TOTE));
 		Position3.whenPressed(new SetElevator(Constants.THREE_TOTE));
 		Position4.whenPressed(new SetElevator(Constants.FOUR_TOTE));
-		}
-		else{
-			liftTote.whenPressed(new Liftdown());
-			lowerTote.whenPressed(new Liftdown());
-		}
+		liftTote.whenPressed(new Liftdown());
+		lowerTote.whenPressed(new Liftdown());
+		
 		
 		}
 
