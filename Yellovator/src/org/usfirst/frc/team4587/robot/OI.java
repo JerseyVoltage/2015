@@ -16,7 +16,7 @@ import org.usfirst.frc.team4587.robot.commands.TotesCollection.ToteOutake;
  */
 public class OI {
 	
-	
+	//drive Controls
 	public static F310GamePad driveStick = new F310GamePad(RobotMap.JOY_LEFT_PORT);
 	public static F310GamePad operatorStick = new F310GamePad(RobotMap.JOY_RIGHT_PORT);
 	public static final Button ShiftGears = new JoystickButton(driveStick,F310GamePad.button_Y);
@@ -36,13 +36,14 @@ public class OI {
 		ShiftGears.toggleWhenPressed(new ShiftGears());
 		Outake.whileHeld(new ToteOutake());
 		Intake.whileHeld(new ToteIntake());
+		lowerTote.whileHeld(new Liftdown());
+		liftTote.whileHeld(new Liftdown());
 		Position0.whenPressed(new SetElevator(Constants.FLOOR));
 		Position1.whenPressed(new SetElevator(Constants.ONE_TOTE));
 		Position2.whenPressed(new SetElevator(Constants.TWO_TOTE));
 		Position3.whenPressed(new SetElevator(Constants.THREE_TOTE));
 		Position4.whenPressed(new SetElevator(Constants.FOUR_TOTE));
-		lowerTote.whileHeld(new Liftdown());
-		liftTote.whileHeld(new Liftdown());
+		
 		
 		
 		}
