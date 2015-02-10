@@ -54,14 +54,14 @@ public class F310GamePad extends Joystick {
 		return axis;
 	}
 	public double getLeftJoystickX() {
-		if (Math4587.withinThreshold(getRawAxis(leftStick_X), deadZone, deadZone)){
+		if (Math4587.withinThreshold(getRawAxis(leftStick_X), -deadZone, deadZone)){
 			return 0.0;
 		} else
 			return this.getRawAxis(leftStick_X);
 	}
 
 	public double getLeftJoystickY() {
-		if (Math4587.withinThreshold(getRawAxis(leftStick_Y), deadZone, deadZone)){
+		if (Math4587.withinThreshold(getRawAxis(leftStick_Y), -deadZone, deadZone)){
 			return 0.0;
 		} else
 			return this.getRawAxis(leftStick_Y);
@@ -69,14 +69,14 @@ public class F310GamePad extends Joystick {
 	}
 
 	public double getRightJoystickX() {
-		if (Math4587.withinThreshold(getRawAxis(rightStick_X), deadZone, deadZone)){
+		if (Math4587.withinThreshold(getRawAxis(rightStick_X), -deadZone, deadZone)){
 			return 0.0;
 		} else
 			return this.getRawAxis(rightStick_X);
 	}
 
 	public double getRightJoystickY() {
-		if (Math4587.withinThreshold(getRawAxis(rightStick_Y), deadZone, deadZone)){
+		if (Math4587.withinThreshold(getRawAxis(rightStick_Y), -deadZone, deadZone)){
 			return 0.0;
 		} else
 			return this.getRawAxis(rightStick_Y);
