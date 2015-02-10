@@ -1,5 +1,4 @@
 package org.usfirst.frc.team4587.robot.Util;
-import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Trigger;
 
 /**
@@ -7,13 +6,13 @@ import edu.wpi.first.wpilibj.buttons.Trigger;
  */
 public class Dpad extends Trigger {
     private HatDir hatDir;
-    private Joystick stick;
+    private F310GamePad stick;
 
     public enum HatDir {
         UP, UP_RIGHT, RIGHT, DOWN_RIGHT, DOWN, DOWN_LEFT, LEFT, UP_LEFT
     }
 
-    public Dpad(Joystick joystick, HatDir dir){
+    public Dpad(F310GamePad joystick, HatDir dir){
         hatDir = dir;
         stick = joystick;
     }
@@ -29,6 +28,7 @@ public class Dpad extends Trigger {
             case UP_RIGHT:
                 if(stick.getPOV() == 45){
                     return true;
+                    
                 }
                 break;
             case RIGHT:

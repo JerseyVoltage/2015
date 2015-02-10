@@ -36,35 +36,50 @@ public class F310GamePad extends Joystick {
 		super(port);
 		this.port = port;
 	}
-
+	public double getAxis(int axis)
+	{
+		if(axis == leftStick_X)
+		{
+			return getLeftJoystickX();
+		}
+		else if(axis == leftStick_Y){
+			return getLeftJoystickY();
+		}
+		else if(axis == rightStick_X){
+			return getRightJoystickX();
+		}
+		else if(axis == rightStick_Y){
+			return getRightJoystickY();
+		}
+		return axis;
+	}
 	public double getLeftJoystickX() {
-		if (Math.abs(getRawAxis(leftStick_X)) > deadZone) {
-			return this.getRawAxis(leftStick_X);
-		} else
+		if (Math4587.withinThreshold(getRawAxis(leftStick_X), deadZone, deadZone)){
 			return 0.0;
+		} else
+			return this.getRawAxis(leftStick_X);
 	}
 
 	public double getLeftJoystickY() {
-		if (Math.abs(getRawAxis(leftStick_Y)) > deadZone) {
-			return this.getRawAxis(leftStick_Y);
-		} else
+		if (Math4587.withinThreshold(getRawAxis(leftStick_Y), deadZone, deadZone)){
 			return 0.0;
+		} else
+			return this.getRawAxis(leftStick_Y);
 
 	}
 
 	public double getRightJoystickX() {
-		if (Math.abs(getRawAxis(rightStick_X)) > deadZone) {
-			return this.getRawAxis(rightStick_X);
-		} else
+		if (Math4587.withinThreshold(getRawAxis(rightStick_X), deadZone, deadZone)){
 			return 0.0;
+		} else
+			return this.getRawAxis(rightStick_X);
 	}
 
-	public double getRightJoysickY() {
-		if (Math.abs(getRawAxis(rightStick_Y)) > deadZone) {
-			return this.getRawAxis(rightStick_Y);
-		} else
+	public double getRightJoystickY() {
+		if (Math4587.withinThreshold(getRawAxis(rightStick_Y), deadZone, deadZone)){
 			return 0.0;
-
+		} else
+			return this.getRawAxis(rightStick_Y);
 	}
 
 	public double getRightTrigger() {
@@ -82,7 +97,6 @@ public class F310GamePad extends Joystick {
 	public boolean getButton(int button) {
 		return this.getRawButton(button);
 	}
-
 	public double getDpad() {
 		return this.getPOV();
 	}

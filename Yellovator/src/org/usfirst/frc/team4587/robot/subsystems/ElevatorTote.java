@@ -1,8 +1,6 @@
 package org.usfirst.frc.team4587.robot.subsystems;
 
 import org.usfirst.frc.team4587.robot.RobotMap;
-import org.usfirst.frc.team4587.robot.commands.ElevatorTote.Liftup;
-
 import edu.wpi.first.wpilibj.AnalogPotentiometer;
 import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.SpeedController;
@@ -46,7 +44,7 @@ public class ElevatorTote extends PIDSubsystem {
 	public void initDefaultCommand() {
 		// Set the default command for a subsystem here.
 		// setDefaultCommand(new MySpecialCommand());
-		this.setDefaultCommand(new Liftup());
+
 	}
 
 	protected double returnPIDInput() {
@@ -71,7 +69,7 @@ public class ElevatorTote extends PIDSubsystem {
 			// Place to extend time of loop
 		} else {
 			motorLift1.pidWrite(output);
-			motorLift2.pidWrite(-output);
+			motorLift2.pidWrite(output);
 		}
 
 	}
@@ -105,7 +103,7 @@ public class ElevatorTote extends PIDSubsystem {
 	 */
 	public void moveElevator(double power) {
 		motorLift1.set(power);
-		motorLift2.set(-power);
+		motorLift2.set(power);
 	}
 
 	public void StopMotors() {

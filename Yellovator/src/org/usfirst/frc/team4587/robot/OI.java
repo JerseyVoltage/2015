@@ -1,7 +1,11 @@
 package org.usfirst.frc.team4587.robot;
 
+import org.usfirst.frc.team4587.robot.Util.Dpad;
 import org.usfirst.frc.team4587.robot.Util.F310GamePad;
+import org.usfirst.frc.team4587.robot.Util.JoyButton;
 import org.usfirst.frc.team4587.robot.commands.ToteScorer;
+import org.usfirst.frc.team4587.robot.commands.ElevatorTote.Liftdown;
+import org.usfirst.frc.team4587.robot.commands.ElevatorTote.Liftup;
 import org.usfirst.frc.team4587.robot.commands.ElevatorTote.SetElevator;
 import org.usfirst.frc.team4587.robot.commands.Shifter.ShiftGears;
 import org.usfirst.frc.team4587.robot.commands.TotesCollection.ToteIntake;
@@ -30,7 +34,9 @@ public class OI {
 	public static final Button Position3 = new JoystickButton(operatorStick, F310GamePad.button_Y);
 	public static final Button Position4 = new JoystickButton(operatorStick, F310GamePad.button_X);
 	public static final Button Deployer = new JoystickButton(operatorStick, F310GamePad.button_Back);
-	
+	public static final JoyButton liftUp = new JoyButton(operatorStick,JoyButton.JoyDir.UP, F310GamePad.leftStick_X);
+	public static final JoyButton liftDown = new JoyButton(operatorStick, JoyButton.JoyDir.DOWN, F310GamePad.leftStick_X);
+	public static final Dpad testButton = new Dpad(operatorStick, Dpad.HatDir.DOWN);
 	public OI() { 
 		ShiftGears.toggleWhenPressed(new ShiftGears());
 		Outake.whileHeld(new ToteOutake());
@@ -41,6 +47,9 @@ public class OI {
 		Position2.whenPressed(new SetElevator(Constants.TWO_TOTE));
 		Position3.whenPressed(new SetElevator(Constants.THREE_TOTE));
 		Position4.whenPressed(new SetElevator(Constants.FOUR_TOTE));
+		liftDown.whileHeld(new Liftdown(.5));
+		liftUp.whileHeld(new Liftup(.5));
+		//testButton.whileActive(command);
 		}
 
 }
