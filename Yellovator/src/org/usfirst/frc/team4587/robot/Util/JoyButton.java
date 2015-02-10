@@ -30,7 +30,7 @@ private int axis;
 			}
 			break;
 		case UP:
-			if(stick.getAxis(axis) >= -.5){
+			if(stick.getAxis(axis) >= .5){
 				return true;
 			}
 			break;
