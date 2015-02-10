@@ -88,22 +88,22 @@ public class DriveBase extends Subsystem {
 		clearEncoders();
 		double Error;
 		double P;
-		final double Kp = .2;// janky proportional loop. small value because
-								// inches
-		// are large.
+		final double Kp = .2;// janky proportional loop. small value because inches are large.
+		
 		while (Math4587.distanceTravelled_Inches(getAverageEncoders()) <= distance) {
-			Error = Math4587.distanceTravelled_Inches(getAverageEncoders())
-					- distance;
+			Error = Math4587.distanceTravelled_Inches(getAverageEncoders()) - distance;
 			P = Error * Kp;
 			mDrive.arcadeDrive(power * P, 0);
 		}
 		mDrive.arcadeDrive(0, 0);
 	}
+	
 
 	public void displayDrive() {
 		SmartDashboard.putNumber("Encoder Left", getLeftEncoder());
 		SmartDashboard.putNumber("Encoder Right", getRightEncoder());
 		SmartDashboard.putNumber("Average Ticks", getAverageEncoders());
+		SmartDashboard.putNumber("Distance Inches", Math4587.distanceTravelled_Inches(getAverageEncoders()));
 	}
 
 }

@@ -73,7 +73,7 @@ private static final double Kd = 0 ;
     	else
     	{
     		motorLift1.pidWrite(output);
-    		motorLift2.pidWrite(output);
+    		motorLift2.pidWrite(-output);
     	}
     	
     }
@@ -84,6 +84,7 @@ private static final double Kd = 0 ;
     	SmartDashboard.putBoolean("Brake", brake);
     	SmartDashboard.putBoolean("On Target", this.onTarget());
     	SmartDashboard.putNumber("Lift Motors PID", last_output);
+    	SmartDashboard.putNumber("Lift MOtor Value", motorLift1.get());
     }
     /**
      * Tote Elevator brake set engage
@@ -103,7 +104,12 @@ private static final double Kd = 0 ;
     public void moveElevator(double power)
     {
     	motorLift1.set(power);
-    	motorLift2.set(power);
+    	motorLift2.set(-power);
+    }
+    public void StopMotors()
+    {
+    	motorLift1.set(0);
+    	motorLift2.set(0);
     }
     
 }

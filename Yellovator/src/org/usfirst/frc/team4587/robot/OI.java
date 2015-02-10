@@ -6,6 +6,7 @@ import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
 import org.usfirst.frc.team4587.robot.commands.ElevatorTote.Liftdown;
+import org.usfirst.frc.team4587.robot.commands.ElevatorTote.Liftup;
 import org.usfirst.frc.team4587.robot.commands.ElevatorTote.SetElevator;
 import org.usfirst.frc.team4587.robot.commands.Shifter.*;
 import org.usfirst.frc.team4587.robot.commands.TotesCollection.ToteIntake;
@@ -16,9 +17,11 @@ import org.usfirst.frc.team4587.robot.commands.TotesCollection.ToteOutake;
  */
 public class OI {
 	
-	//drive Controls
+	//Controllers
 	public static F310GamePad driveStick = new F310GamePad(RobotMap.JOY_LEFT_PORT);
 	public static F310GamePad operatorStick = new F310GamePad(RobotMap.JOY_RIGHT_PORT);
+	
+	// Driver Controls
 	public static final Button ShiftGears = new JoystickButton(driveStick,F310GamePad.button_Y);
 	public static final Button Outake = new JoystickButton(driveStick,F310GamePad.button_L_Shoulder);
 	public static final Button Intake = new JoystickButton(driveStick, F310GamePad.button_R_Shoulder);
@@ -37,7 +40,7 @@ public class OI {
 		Outake.whileHeld(new ToteOutake());
 		Intake.whileHeld(new ToteIntake());
 		lowerTote.whileHeld(new Liftdown());
-		liftTote.whileHeld(new Liftdown());
+		liftTote.whileHeld(new Liftup());
 		Position0.whenPressed(new SetElevator(Constants.FLOOR));
 		Position1.whenPressed(new SetElevator(Constants.ONE_TOTE));
 		Position2.whenPressed(new SetElevator(Constants.TWO_TOTE));
