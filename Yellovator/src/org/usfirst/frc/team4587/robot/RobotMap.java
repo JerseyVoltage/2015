@@ -37,7 +37,10 @@ public class RobotMap {
 	 * Elevator Motors for Can
 	 */
 	public static final int MOTOR_LIFT_C1 = 9;
-
+	/*
+	 * Motor to deploy totes
+	 */
+	public static final int MOTOR_DEPLOY_TOTES = 10;
 	// ////////////////////////////////--Solenoids--/////////////////////////////////////////
 
 	/*
@@ -70,10 +73,14 @@ public class RobotMap {
 
 	// /////////////////////////////////--DIO--///////////////////////////////////////////////////
 	/*
-	 * Touch Sensors for Totes
+	 * Touch Sensors for Totes collection
 	 */
-	public static final int TOUCH_SENSOR_L1 = 0;
-	public static final int TOUCH_SENSOR_R1 = 2;
+	public static final int TOUCH_SENSOR_C1 = 0;
+	/*
+	 * Touch Sensor for deploying totes
+	 */
+	public static final int TOUCH_SENSOR_IN = 1;
+	public static final int TOUCH_SENSOR_OUT = 2;
 	/*
 	 * Encoders for Drive Wheels Two ports: a,b
 	 */

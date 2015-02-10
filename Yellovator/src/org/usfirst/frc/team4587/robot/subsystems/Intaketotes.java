@@ -18,7 +18,7 @@ public class Intaketotes extends Subsystem {
 	private final DigitalInput limitSwitch;
 
 	public Intaketotes() {
-		limitSwitch = new DigitalInput(RobotMap.TOUCH_SENSOR_L1);
+		limitSwitch = new DigitalInput(RobotMap.TOUCH_SENSOR_C1);
 		intakeMotor1 = new Talon(RobotMap.MOTOR_INTAKE_L1);
 		intakeMotor2 = new Talon(RobotMap.MOTOR_INTAKE_R1);
 	}

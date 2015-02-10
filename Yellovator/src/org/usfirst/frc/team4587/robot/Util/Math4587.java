@@ -33,5 +33,20 @@ public class Math4587 {
 	{
 		return (pot *(POT_DIAMTER * POT_RATIO) * Math.PI)/POT_VOLTAGE_PER_ROTATION;
 	}
+	/**
+	 * Make sure the value is within a certain threshold.
+	 * @param current
+	 * @param lower
+	 * @param upper
+	 * @return
+	 */
+	public static boolean withinThreshold(double current, double lower, double upper)
+	{
+		if(current > lower && current < upper){
+			return true;
+		}
+		else 
+			return false;
+	}
 	
 }

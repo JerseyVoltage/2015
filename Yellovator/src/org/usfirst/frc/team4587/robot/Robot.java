@@ -4,6 +4,7 @@ import org.usfirst.frc.team4587.robot.subsystems.DriveBase;
 import org.usfirst.frc.team4587.robot.subsystems.ElevatorTote;
 import org.usfirst.frc.team4587.robot.subsystems.Intaketotes;
 import org.usfirst.frc.team4587.robot.subsystems.Shifter;
+import org.usfirst.frc.team4587.robot.subsystems.ToteShooter;
 
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
@@ -30,6 +31,7 @@ public class Robot extends IterativeRobot {
 	public static Shifter shiftspeed = new Shifter();
 	public static Intaketotes Collection = new Intaketotes();
 	public static ElevatorTote liftertotes = new ElevatorTote();
+	public static ToteShooter scorertotes = new ToteShooter();
 
 	public void robotInit() {
 		oi = new OI();
