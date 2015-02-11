@@ -32,7 +32,6 @@ public class Robot extends IterativeRobot {
 	public static Intaketotes Collection = new Intaketotes();
 	public static ElevatorTote liftertotes = new ElevatorTote();
 	public static ToteShooter scorertotes = new ToteShooter();
-
 	public void robotInit() {
 		oi = new OI();
 		// Drivetrain.resetEncoders();

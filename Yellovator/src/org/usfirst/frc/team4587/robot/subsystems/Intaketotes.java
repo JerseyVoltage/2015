@@ -1,12 +1,12 @@
 package org.usfirst.frc.team4587.robot.subsystems;
 
 import org.usfirst.frc.team4587.robot.RobotMap;
-import org.usfirst.frc.team4587.robot.Constants;
 
 import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.SpeedController;
 import edu.wpi.first.wpilibj.Talon;
 import edu.wpi.first.wpilibj.command.Subsystem;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  *
@@ -17,11 +17,13 @@ public class Intaketotes extends Subsystem {
 	// here. Call these from Commands.
 	private final SpeedController intakeMotor1, intakeMotor2;
 	private final DigitalInput limitSwitch;
+	public int count;
 
 	public Intaketotes() {
 		limitSwitch = new DigitalInput(RobotMap.TOUCH_SENSOR_C1);
 		intakeMotor1 = new Talon(RobotMap.MOTOR_INTAKE_L1);
 		intakeMotor2 = new Talon(RobotMap.MOTOR_INTAKE_R1);
+		count = 0;
 	}
 
 	public void setIntake(double speed) {
@@ -45,7 +47,10 @@ public class Intaketotes extends Subsystem {
 
 	public boolean getSwitch() {
 		if(this.limitSwitch.get())
+		{
 			count++;
+			SmartDashboard.putNumber("Number of Totes",count);
+		}
 		return this.limitSwitch.get();
 	}
 

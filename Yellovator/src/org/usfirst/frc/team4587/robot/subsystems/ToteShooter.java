@@ -1,6 +1,7 @@
 package org.usfirst.frc.team4587.robot.subsystems;
 
 import org.usfirst.frc.team4587.robot.RobotMap;
+import org.usfirst.frc.team4587.subsystems.Intaketotes;
 
 import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.SpeedController;
@@ -30,8 +31,8 @@ public class ToteShooter extends Subsystem {
 		 while(getTote_out() == false)
 		 {
 			 this.setDeployMotors(.6);
-			 count = 0;
-			 SmartDashboard.putNumber("Number of Totes",count);
+			 Intaketotes.count = 0;
+			 SmartDashboard.putNumber("Number of Totes",Intaketotes.count);
 		 }
 		 this.setDeployMotors(0);
 	 }
