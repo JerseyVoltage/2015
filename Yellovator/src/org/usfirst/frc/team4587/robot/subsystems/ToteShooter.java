@@ -30,6 +30,8 @@ public class ToteShooter extends Subsystem {
 		 while(getTote_out() == false)
 		 {
 			 this.setDeployMotors(.6);
+			 count = 0;
+			 SmartDashboard.putNumber("Number of Totes",count);
 		 }
 		 this.setDeployMotors(0);
 	 }
