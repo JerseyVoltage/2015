@@ -1,5 +1,6 @@
 package org.usfirst.frc.team4587.robot.subsystems;
 
+import org.usfirst.frc.team4587.robot.Robot;
 import org.usfirst.frc.team4587.robot.RobotMap;
 import org.usfirst.frc.team4587.robot.subsystems.Intaketotes;
 
@@ -32,7 +33,7 @@ public class ToteShooter extends Subsystem {
 		 {
 			 this.setDeployMotors(.6);
 			 Intaketotes.count = 0;
-			 SmartDashboard.putNumber("Number of Totes",Intaketotes.count);
+			 Robot.updateDashboard();
 		 }
 		 this.setDeployMotors(0);
 	 }
