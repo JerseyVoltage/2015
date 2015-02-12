@@ -38,7 +38,7 @@ public class Robot extends IterativeRobot {
 		// Drivetrain.resetEncoders();
 		System.out.println("init");
 		
-		updateDashboard();
+		SmartDashboard.putNumber("Test", 2);
 
 		// instantiate the command used for the autonomous period
 	}
@@ -94,16 +94,5 @@ public class Robot extends IterativeRobot {
 	 */
 	public void testPeriodic() {
 		//LiveWindow.run();
-	}
-	
-	public static void updateDashboard()
-	{
-		SmartDashboard.putNumber("Pot Value", ElevatorTote.pot.get());
-		SmartDashboard.putNumber("Set Point", ElevatorTote.setpoint);
-		SmartDashboard.putBoolean("Brake", ElevatorTote.brake);
-		SmartDashboard.putBoolean("On Target", ElevatorTote.onTarget);
-		SmartDashboard.putNumber("Lift Motors PID", ElevatorTote.last_output);
-		SmartDashboard.putNumber("Lift Motor Value", ElevatorTote.motorLift1.get());
-		SmartDashboard.putNumber("Number of Totes",Intaketotes.count);
 	}
 }

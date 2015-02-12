@@ -1,26 +1,23 @@
 package org.usfirst.frc.team4587.robot.subsystems;
 
 import org.usfirst.frc.team4587.robot.RobotMap;
-import org.usfirst.frc.team4587.robot.Robot;
 import edu.wpi.first.wpilibj.AnalogPotentiometer;
 import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.SpeedController;
 import edu.wpi.first.wpilibj.Talon;
 import edu.wpi.first.wpilibj.command.PIDSubsystem;
 import edu.wpi.first.wpilibj.interfaces.Potentiometer;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  *
  */
 public class ElevatorTote extends PIDSubsystem {
-	public static Potentiometer pot;
-	public static double setpoint;
-	public static SpeedController motorLift1;
-	SpeedController motorLift2;
+	Potentiometer pot;
+	SpeedController motorLift1, motorLift2;
 	Solenoid pistonBrake;
-	public static boolean brake;
-	public static boolean onTarget;
-	public static double last_output = 0;
+	private boolean brake;
+	private double last_output = 0;
 	// Initialize your subsystem here
 	private static final double Kp = 5;
 	private static final double Ki = 0;
@@ -74,13 +71,16 @@ public class ElevatorTote extends PIDSubsystem {
 			motorLift1.pidWrite(output);
 			motorLift2.pidWrite(output);
 		}
-		
-		setpoint = this.getSetpoint();
-		onTarget = this.onTarget();
+
 	}
 
 	public void display_Tote_Elevator() {
-		Robot.updateDashboard();
+		SmartDashboard.putNumber("Pot Value", pot.get());
+		SmartDashboard.putNumber("Set Point", this.getSetpoint());
+		SmartDashboard.putBoolean("Brake", brake);
+		SmartDashboard.putBoolean("On Target", this.onTarget());
+		SmartDashboard.putNumber("Lift Motors PID", last_output);
+		SmartDashboard.putNumber("Lift Motor Value", motorLift1.get());
 	}
 
 	/**
