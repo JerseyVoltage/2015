@@ -17,12 +17,13 @@ public class Intaketotes extends Subsystem {
 	// here. Call these from Commands.
 	private final SpeedController intakeMotor1, intakeMotor2;
 	private final DigitalInput limitSwitch;
-	public static int count = 0;
+	public int count;
 
 	public Intaketotes() {
 		limitSwitch = new DigitalInput(RobotMap.TOUCH_SENSOR_C1);
 		intakeMotor1 = new Talon(RobotMap.MOTOR_INTAKE_L1);
 		intakeMotor2 = new Talon(RobotMap.MOTOR_INTAKE_R1);
+		count = 0;
 	}
 
 	public void setIntake(double speed) {

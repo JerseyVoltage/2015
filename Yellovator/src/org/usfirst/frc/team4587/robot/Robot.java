@@ -9,8 +9,7 @@ import org.usfirst.frc.team4587.robot.subsystems.ToteShooter;
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
-//import edu.wpi.first.wpilibj.livewindow.LiveWindow;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -37,8 +36,6 @@ public class Robot extends IterativeRobot {
 		oi = new OI();
 		// Drivetrain.resetEncoders();
 		System.out.println("init");
-		
-		SmartDashboard.putNumber("Test", 2);
 
 		// instantiate the command used for the autonomous period
 	}
@@ -93,6 +90,6 @@ public class Robot extends IterativeRobot {
 	 * s This function is called periodically during test mode
 	 */
 	public void testPeriodic() {
-		//LiveWindow.run();
+		LiveWindow.run();
 	}
 }
