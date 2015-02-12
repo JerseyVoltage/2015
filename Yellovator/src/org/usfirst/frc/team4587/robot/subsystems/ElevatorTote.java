@@ -81,6 +81,7 @@ public class ElevatorTote extends PIDSubsystem {
 		SmartDashboard.putBoolean("On Target", this.onTarget());
 		SmartDashboard.putNumber("Lift Motors PID", last_output);
 		SmartDashboard.putNumber("Lift Motor Value", motorLift1.get());
+		SmartDashboard.putNumber("Number of Totes",count);
 	}
 
 	/**

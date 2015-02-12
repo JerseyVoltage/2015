@@ -8,4 +8,6 @@ public static final double TWO_TOTE = .4;
 public static final double THREE_TOTE = .6;
 public static final double FOUR_TOTE = .8;
 public static final double FIVE_TOTE = 1;
+
+public int count = 0;
 }
