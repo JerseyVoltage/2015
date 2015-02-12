@@ -1,7 +1,6 @@
 package org.usfirst.frc.team4587.robot.subsystems;
 
 import org.usfirst.frc.team4587.robot.RobotMap;
-import org.usfirst.frc.team4587.robot.Constants;
 
 import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.SpeedController;
@@ -44,8 +43,6 @@ public class Intaketotes extends Subsystem {
 	}
 
 	public boolean getSwitch() {
-		if(this.limitSwitch.get())
-			count++;
 		return this.limitSwitch.get();
 	}
 
